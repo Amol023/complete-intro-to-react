@@ -7,12 +7,13 @@ var MyTitle = React.createClass({
   render() {
     return (
       div(null,
-        h1(null, 'Check out this other thing.')
+        h1({style: { color: this.props.color}}, this.props.title)
       )
     )
   }
 })
 //different ways to create an instance
+//makes the class into a function, when called gives back the component
 var MytitleFact = React.createFactory(MyTitle)
 var ce = React.createElement
 //everything is a function in react
@@ -21,9 +22,12 @@ var MyFirstComponent = (
   div(null,
     //one specific instance of the element created above
     //three different ways to create an instance
-    MytitleFact(null),
-    React.createElement(MyTitle, null),
-    ce(MyTitle, null)
+    //props allows us to create flexible instances
+    MytitleFact({title: 'Props are great', color: 'rebeccapurple'}),
+    React.createElement(MyTitle, {title: 'Props are great!!!!!', color: 'mediumaquamarine'}),
+    ce(MyTitle, {title: 'Pipi', color: 'peru'}),
+    ce(MyTitle, {title: 'Papaaaiyu', color: 'papayawhip'})
+
   )
 )
 ReactDOM.render(MyFirstComponent, document.getElementById('app'))
