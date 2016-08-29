@@ -1,3 +1,4 @@
+// Actions up and props down
 const React = require('react')
 const ReactDOM = require('react-dom')
 const Landing = require('./Landing.jsx')
