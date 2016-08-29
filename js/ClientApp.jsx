@@ -3,14 +3,19 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const Landing = require('./Landing.jsx')
 const Search = require('./Search.jsx')
+const Layout = require('./Layout.jsx')
 //  de-structuring
-const { Router, Route, hashHistory } = require('react-router')
+const { Router, Route, IndexRoute, hashHistory } = require('react-router')
 
 const App = () => {
   return (
     <Router history={hashHistory}>
-    <Route path='/' component={ Landing } />
-    <Route path='/search' component={ Search } />
+      {/* creating a nested route */}
+      <Route path='/' component= { Layout }>
+        {/* since we would have the same path for landing and layout, we use Indexroute */}
+        <IndexRoute component={ Landing } />
+        <Route path='/search' component={ Search } />
+      </Route>
     </Router>
   )
 }

@@ -13,7 +13,7 @@ const Search = () => {
             //  react is smart about how it updates the DOM
             //  the key helps out to tell react to use the same element
             //  instead of creating a new element
-            <ShowCard show={eachShow} key={eachShow.imdbID}/>
+            <ShowCard {...eachShow} key={eachShow.imdbID}/>
           )
         })}
       </div>
