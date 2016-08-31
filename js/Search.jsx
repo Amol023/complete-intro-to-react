@@ -6,6 +6,10 @@ const Search = () => {
   return (
     // pre shows us code
     <div className='container'>
+      <header className='header'>
+        <h1 className='brand'>tubeFlix</h1>
+
+      </header>
       <div className='shows'>
         {data.shows.map((eachShow) => {
           return (
