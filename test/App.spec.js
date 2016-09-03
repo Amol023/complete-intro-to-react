@@ -1,5 +1,15 @@
 /* eslint-env mocha */
 
+ /* #####################################
+   test coverage checks how much of our code is covered in our tests
+   you can use istambul/nyc
+   below is the command to run nyc, where reporter makes sure, all the requests are covered
+   nyc --reporter=lcov --reporter=text --reporter=html --require babel-register
+   --extension .jsx npm test
+   more interestingly(but not very useful), if we go to coverage folder (that nyc creates) and say 'start index.html',
+   it shows a nice report in the browser
+ ##################################### */
+
 //  chat is an assertion library
 const { expect } = require('chai')
 const React = require('React')

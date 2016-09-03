@@ -1,6 +1,6 @@
 const React = require('react')
 const ShowCard = require('./ShowCard.jsx')
-const data = require('../public/data.json')
+const { object } = React.PropTypes
 // this is other way to do it, but doesn't have auto binding
 // class Search extends React.Component {
 
@@ -16,6 +16,12 @@ const Search = React.createClass({
     this.setState({searchTerm : event.target.value})
   },
 
+  //  we need to add prop types so that linter knows
+  propTypes: {
+    // shows is an array of objects
+    route: object
+  },
+
   render () {
     return (
       // pre shows us code
@@ -25,9 +31,8 @@ const Search = React.createClass({
           <input value={this.state.searchTerm} className='search-input' type='text' placeholder='Search' onChange={this.handeleSearchTermEvent}/>
         </header>
         <div className='shows'>
-          {data.shows
-            .filter((eachShow) =>`${eachShow.title} ${eachShow.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
-            )
+          {this.props.route.shows
+            .filter((eachShow) => `${eachShow.title} ${eachShow.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
             .map((eachShow) => {
             return (
               //  each show is passed as a prop

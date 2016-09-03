@@ -6,7 +6,7 @@ const h1 = React.DOM.h1
 
 //  creates a new type of element
 //  it's called a composite component -- component of our own creation
-var MyTitle = React.createClass({
+const MyTitle = React.createClass({
   //  react without JSX
   // render () {
   //   return (

@@ -17,12 +17,12 @@ const ShowCard = (props) => {
 
   //  const string = React.PropTypes.string
   //  ^same as above
-  // const { string } = React.PropTypes
-  // ShowCard.propTypes = {
-  //   title: string.isRequired,
-  //   description: string.isRequired,
-  //   year: string.isRequired,
-  //   poster: string.isRequired
-  // }
+  const { string } = React.PropTypes
+  ShowCard.propTypes = {
+    title: string.isRequired,
+    description: string.isRequired,
+    year: string.isRequired,
+    poster: string.isRequired
+  }
 }
 module.exports = ShowCard
