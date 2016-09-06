@@ -1,4 +1,5 @@
 const React = require('react')
+const Header = './Header.jsx'
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Here Details and Search both access the same data,
 So one way for us to access data is make an ajax request from both
@@ -9,9 +10,9 @@ and then pass it as props!
 --- This is called Data Tunneling problem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-class Details extends React.Component {
-  render () {
+const Details = React.createClass({
 
+  render () {
     // This is a good way to make the program resilient -- guards against crashes
     // So now we can refer to params, and it'll show a blank object if the props
     // are not passed or something -- so the user will see a blank instead of an eror page
@@ -20,9 +21,7 @@ class Details extends React.Component {
 
     return (
       <div className='container'>
-        <header className='header'>
-          <h1 className='brand'>tubeFlix</h1>
-        </header>
+        <Header />
         <div className='video-info'>
           <h1 className='video-title'>{title}</h1>
           <h2 className='video-year'>{year}</h2>
@@ -36,6 +35,6 @@ class Details extends React.Component {
       </div>
     )
   }
-}
+})
 
 module.exports = Details

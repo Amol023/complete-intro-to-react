@@ -1,6 +1,7 @@
 const React = require('react')
 const ShowCard = require('./ShowCard.jsx')
 const { object } = React.PropTypes
+const Header = require('./Header.jsx')
 // this is other way to do it, but doesn't have auto binding
 // class Search extends React.Component {
 
@@ -23,13 +24,16 @@ const Search = React.createClass({
   },
 
   render () {
+
+    let searchComponent = 1
     return (
       // pre shows us code
       <div className='container'>
-        <header className='header'>
+        <Header searchComponent={searchComponent} searchTerm={this.state.searchTerm} handeleSearchTermEvent={this.handeleSearchTermEvent}/>
+        {/* <header className='header'>
           <h1 className='brand'>tubeFlix</h1>
           <input value={this.state.searchTerm} className='search-input' type='text' placeholder='Search' onChange={this.handeleSearchTermEvent}/>
-        </header>
+        </header> */}
         <div className='shows'>
           {this.props.route.shows
             .filter((eachShow) => `${eachShow.title} ${eachShow.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
